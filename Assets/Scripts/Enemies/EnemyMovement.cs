@@ -8,14 +8,13 @@ public class EnemyMovement : MonoBehaviour
     // Speed at which the enemy moves towards the player
     public float moveSpeed = 5f;
     public float health = 1f;
+    public float damage = 1f;
 
-    public float growInterval = 2f;
+    public GameObject drop;
 
     // Reference to the player's transform
     private Transform player;
     private float lifeTime = 0f;
-
-
 
     void Start()
     {
@@ -33,13 +32,7 @@ public class EnemyMovement : MonoBehaviour
     {
         // Move the enemy towards the player on the Z and Y axes
         MoveTowardsPlayer();
-
-        if(health <= 0) {
-            GameObject.Destroy(this.gameObject);
-        }
-
         lifeTime += Time.deltaTime;
-
     }
 
     void MoveTowardsPlayer()
@@ -54,10 +47,24 @@ public class EnemyMovement : MonoBehaviour
         transform.position += direction * moveSpeed * Time.deltaTime;
     }
 
-    void EnemyGrowth() {
-        Vector3 currentScale = gameObject.transform.localScale;
+    //Enemy Take Damage
+    private void OnCollisionEnter(Collision other) {
+        if(other.gameObject.CompareTag("Weapon")) {
+            health--;
+        }
 
-        //some magic formula --> 
+        if(health <= 0) {
+            OnDeath();
+        }
+    }
+
+    
+    void OnDeath() {
+        //Drop exp
+   
+        Instantiate(drop, gameObject.transform.position, Quaternion.identity);
+        
+        GameObject.Destroy(gameObject);
     }
 
 }

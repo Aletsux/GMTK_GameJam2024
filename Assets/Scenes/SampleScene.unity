@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 8114972811545369726, guid: ec530287d578db34ca923947afeb92d9, type: 3}
   spawnInterval: 2
-  spawnAreaSize: {x: 30, y: 5, z: 30}
+  spawnAreaSize: {x: 15, y: 5, z: 15}
 --- !u!4 &640050691
 Transform:
   m_ObjectHideFlags: 0
@@ -507,6 +507,7 @@ GameObject:
   - component: {fileID: 1016641084}
   - component: {fileID: 1016641083}
   - component: {fileID: 1016641089}
+  - component: {fileID: 1016641090}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -670,6 +671,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1016641090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016641082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b1c54c4144d8fb40a70b97356d8af6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  scaleIncrement: {x: 1, y: 1, z: 1}
 --- !u!1 &1218712120
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,7 +939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 22ddc999c7f04944f9bedd98ee3a5c1b, type: 3}
       propertyPath: m_TagString
-      value: Untagged
+      value: Weapon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

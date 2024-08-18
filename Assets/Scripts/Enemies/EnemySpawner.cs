@@ -4,17 +4,24 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
- // The prefab to spawn
+    // The prefab to spawn
     public GameObject objectToSpawn;
 
     // The time interval between spawns
     public float spawnInterval = 2f;
 
     // The area within which objects will spawn
-    public Vector3 spawnAreaSize = new Vector3(10f,0f,10f);
+    public Vector3 spawnAreaSize = new Vector3(10f, 0f, 10f);
+    public float spawnAmount = 1f;
 
     // Reference to store the time since the last spawn
     private float timeSinceLastSpawn;
+    public GameObject playerController;
+
+    private void Start() {
+        
+    }
+
 
     void Update()
     {
@@ -31,15 +38,23 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnObject()
     {
-        // Generate a random position within the spawn area
-        float spawnPosX = Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2);
-        float spawnPosZ = Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2);
+        for (int i = 0; i < spawnAmount; i++)
+        {
+            // Generate a random position within the spawn area
+            float spawnPosX = Random.Range(-spawnAreaSize.x / 2, spawnAreaSize.x / 2);
+            float spawnPosZ = Random.Range(-spawnAreaSize.z / 2, spawnAreaSize.z / 2);
 
-        // Set the spawn position relative to the spawner's position
-        Vector3 spawnPosition = new Vector3(spawnPosX, 0f, spawnPosZ) + transform.position;
+            // Set the spawn position relative to the spawner's position
+            Vector3 spawnPosition = new Vector3(spawnPosX, 0f, spawnPosZ) + transform.position;
 
-        // Instantiate the object at the calculated position
-        Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+            // Instantiate the object at the calculated position
+            Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+        }
+
+    }
+
+    private void ScaleSpawnAmount() {
+        
     }
 
     // Optional: Visualize the spawn area in the editor

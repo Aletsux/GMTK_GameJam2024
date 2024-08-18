@@ -44,10 +44,6 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.CompareTag("Enemy")) {
-            GameObject.Destroy(other.gameObject);
-        }
-    }
+    
 
 }

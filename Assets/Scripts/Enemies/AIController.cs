@@ -5,7 +5,7 @@ using UnityEngine;
 public class AIController : MonoBehaviour
 {
     // Start is called before the first frame update// Time interval in seconds for scaling up the GameObject
-    public float interval = 5.0f;
+    public float interval = 2.0f;
 
     // Scale increment
     public Vector3 scaleIncrement = new Vector3(0.1f, 0.1f, 0.1f);
