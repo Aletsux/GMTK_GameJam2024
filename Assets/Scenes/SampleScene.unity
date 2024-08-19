@@ -323,6 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 705507995}
   - component: {fileID: 705507994}
+  - component: {fileID: 705507996}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -400,13 +401,36 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.58937174, y: -0.32905254, z: 0.0909686, w: 0.7321818}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 67.357, y: -76.675, z: -41.412}
+--- !u!114 &705507996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705507993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
 --- !u!1 &750202519
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +602,7 @@ GameObject:
   - component: {fileID: 1016641083}
   - component: {fileID: 1016641089}
   - component: {fileID: 1016641090}
+  - component: {fileID: 1016641091}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -665,7 +690,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 847bac4d9a701334a892ab1b0426b2fd, type: 2}
+  - {fileID: 2100000, guid: 3249b6e479c33cf4bac62178ec3f9a05, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -759,6 +784,20 @@ MonoBehaviour:
   shrinkInterval: 5
   maxExpIncrease: 5
   currentLevel: 1
+--- !u!114 &1016641091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016641082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b8df1f7b770984fab48282e9d8d50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  smokeTrail: {fileID: 1114902076830578810, guid: bd839bfa45100b8449b5c84807b00ed5, type: 3}
+  particleScale: 0.5
 --- !u!1 &1218712120
 GameObject:
   m_ObjectHideFlags: 0
@@ -992,7 +1031,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 52fa90bf3f5677b4189aad3b6c665a96, type: 2}
+  - {fileID: 2100000, guid: ad526257dc459874d890cb85f6bcec7c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1165,6 +1204,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -409.185
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 22ddc999c7f04944f9bedd98ee3a5c1b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d481af2aa77b6f84fac2d6868d1b9780, type: 2}
     - target: {fileID: 919132149155446097, guid: 22ddc999c7f04944f9bedd98ee3a5c1b, type: 3}
       propertyPath: m_Name
       value: Weapon
@@ -1208,7 +1251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1811189790
 RectTransform:
   m_ObjectHideFlags: 0
