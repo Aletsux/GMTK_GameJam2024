@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
 
     // Internal variable to store the elapsed time
     private float elapsedTime;
+    public float customTime = 0f;
 
     void Start()
     {
@@ -37,5 +38,13 @@ public class Timer : MonoBehaviour
         {
             timerText.text = "Time: " + elapsedTime.ToString("F2") + "s";
         }
+    }
+
+    public float GetTime() {
+        return elapsedTime;
+    }
+
+    private void ResetTime() {
+        
     }
 }

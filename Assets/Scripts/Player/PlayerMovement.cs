@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour
     // Variables for movement
     public float moveSpeed = 5f;
 
-    public Camera camera; 
-
-    public Vector3 cameraOffset;
 
     // Reference to the character controller
     private CharacterController controller;
@@ -27,10 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Handle player rotation to face the mouse cursor
         HandleRotation();
-
-        if(camera != null) {
-            camera.transform.position = gameObject.transform.position + cameraOffset;
-        }
     }
 
     void HandleMovement()

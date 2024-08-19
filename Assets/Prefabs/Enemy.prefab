@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7015fc3bc1cefe445b520df05af5da8a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,9 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  health: 1
-  growInterval: 2
-  drop: {fileID: 5166394141002766152, guid: cbe621078eec1704786ece8fd8f5dae7, type: 3}
+  damage: 1
 --- !u!114 &-2830453204096245815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,5 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cb6f63393f29c440af725a3de6398fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 5
-  scaleIncrement: {x: 0.1, y: 0.1, z: 0.1}
+  health: 1
+  healthExponent: 2
+  interval: 2
+  scaleIncrement: {x: 0.5, y: 0.5, z: 0.5}
+  drop: {fileID: 5166394141002766152, guid: cbe621078eec1704786ece8fd8f5dae7, type: 3}

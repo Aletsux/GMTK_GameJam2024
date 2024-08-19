@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public EnemySpawner enemySpawner;
     public float health = 5f;
+    public float baseDamage = 1f;
+    public static float damage = 1f;
+    public float sizeExponent = 1f;
     public Vector3 shrinkIncrement = new Vector3(1f, 1f, 1f);
-    public float expLoss = 1f;
     public float shrinkInterval = 5f;
     public float maxExpIncrease = 5f;
     public float currentLevel = 1f;
@@ -14,17 +18,24 @@ public class PlayerController : MonoBehaviour
     private float maxExp = 0f;
     private float nextShrinkTime = 0f;
 
+    public static float GetDamage() {
+        return damage;
+    }
+    
     // Start is called before the first frame update
     void Start()
     {
         maxExp = maxExpIncrease;
         nextShrinkTime = shrinkInterval;
+        
+        damage = baseDamage;
     }
 
     // Update is called once per frame
     void Update()
     {
         ShrinkOverTime();
+        SetDamage();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,14 +56,12 @@ public class PlayerController : MonoBehaviour
     {
         currentLevel++;
 
-        // Calculate the new scale using a logarithmic function
-        float scaleMultiplier = Mathf.Log(currentLevel + 1, 2); // base 2 log
-        Vector3 newScale = Vector3.one * scaleMultiplier;
-
-        transform.localScale = newScale;
+        IncreaseScale();
 
         // Increase the max experience required for the next level
         maxExp += maxExpIncrease;
+        enemySpawner.ScaleSpawnAmount();
+
     }
 
     private void ShrinkOverTime()
@@ -73,6 +82,33 @@ public class PlayerController : MonoBehaviour
 
             // Set the next scale time
             nextShrinkTime += shrinkInterval;
+            Debug.Log("Damage = " + GetDamage());
         }
     }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            health--;
+        }
+    }
+
+    private void IncreaseScale()
+    {
+        // Calculate the new scale using a logarithmic function
+        float scaleMultiplier = Mathf.Log(currentLevel + sizeExponent, 2); // base 2 log
+        Vector3 newScale = Vector3.one * scaleMultiplier;
+
+        transform.localScale = newScale;
+        Debug.Log("Damage = " + GetDamage());
+    }
+    
+
+    private void SetDamage()
+    {
+        baseDamage = currentLevel;
+        damage = baseDamage + (transform.localScale.magnitude * 2f);
+    }
+
 }

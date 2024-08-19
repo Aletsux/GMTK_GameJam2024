@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public PlayerController playerController;
+    public AIController aIController;
     // Reference to the Animator component
     private Animator animator;
 
@@ -43,6 +45,8 @@ public class PlayerAttack : MonoBehaviour
             
         }
     }
+
+
 
     
 
