@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    
-    PlayerController playerController;
+    public EnemyDamageFlash[] enemyDamageFlash;
     public float health = 1f;
     public float healthExponent = 1f;
     // Start is called before the first frame update// Time interval in seconds for scaling up the GameObject
@@ -16,13 +15,18 @@ public class AIController : MonoBehaviour
     public GameObject drop;
     private float elapsedTime = 0f;
 
+
+
     // Internal variable to keep track of the next scaling time
     private float nextScaleTime;
 
+
     void Start()
     {
+        //Growth timer
         elapsedTime = 0f;
         nextScaleTime = interval;
+
     }
 
     void Update()
@@ -53,7 +57,7 @@ public class AIController : MonoBehaviour
         health += transform.localScale.magnitude * healthExponent;
 
     }
-        
+
     //Enemy Take Damage
     private void OnCollisionEnter(Collision other)
     {
@@ -65,6 +69,10 @@ public class AIController : MonoBehaviour
 
     public void EnemyHit(GameObject other, float damage)
     {
+        for(int i = 0; i < enemyDamageFlash.Length; i++) {
+            enemyDamageFlash[i].StartFlash();
+        }
+        
         health -= damage;
         if (health <= 0)
         {
@@ -75,13 +83,9 @@ public class AIController : MonoBehaviour
     void OnDeath()
     {
         //Drop exp
-
         Instantiate(drop, gameObject.transform.position, Quaternion.identity);
 
         GameObject.Destroy(gameObject);
     }
-
-
-
 
 }

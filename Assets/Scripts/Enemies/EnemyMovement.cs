@@ -7,8 +7,7 @@ public class EnemyMovement : MonoBehaviour
 {
     // Speed at which the enemy moves towards the player
     public float moveSpeed = 5f;
-   
-    public float damage = 1f;
+    public float rotationSpeed = 5f;
 
     // Reference to the player's transform
     private Transform player;
@@ -35,14 +34,16 @@ public class EnemyMovement : MonoBehaviour
 
     void MoveTowardsPlayer()
     {
-        // Calculate the direction vector from the enemy to the player
+        // Calculate the direction from the enemy to the player
         Vector3 direction = (player.position - transform.position).normalized;
 
-        // Keep the y-axis constant by setting it to zero
-        direction.y = 0f;
+        // Move the enemy towards the player along the X and Z axes
+        Vector3 moveDirection = new Vector3(direction.x, 0, direction.z);
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
 
-        // Move the enemy towards the player on the Z and Y axes
-        transform.position += direction * moveSpeed * Time.deltaTime;
+        // Rotate the enemy mesh to face the player along the Y-axis
+        Quaternion targetRotation = Quaternion.LookRotation(moveDirection);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
 }

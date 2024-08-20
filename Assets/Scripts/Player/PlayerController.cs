@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public EnemySpawner enemySpawner;
+    public PlayerDamageFlash[] childObjects;
     public float health = 5f;
     public float baseDamage = 1f;
     public static float damage = 1f;
@@ -14,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float shrinkInterval = 5f;
     public float maxExpIncrease = 5f;
     public float currentLevel = 1f;
+
+    private PlayerDamageFlash playerDamageFlash;
     private float currentExp = 0f;
     private float maxExp = 0f;
     private float nextShrinkTime = 0f;
@@ -90,6 +93,10 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            for(int i = 0; i < childObjects.Length; i++) {
+                childObjects[i].StartFlash();
+            }
+            
             health--;
         }
     }

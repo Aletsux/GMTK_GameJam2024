@@ -41,12 +41,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _FlashAlpha: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Scale: 1
     - _Shades: 0.49
     m_Colors:
-    - _Color: {r: 0.4339623, g: 0.39097545, b: 0.39097545, a: 0}
+    - _Color: {r: 0.4339623, g: 0.2603671, b: 0.14124244, a: 0}
     - _Color_2: {r: 0.24528301, g: 0.23949803, b: 0.23949803, a: 0}
+    - _FlashColor: {r: 1, g: 0.9292453, b: 0.9292453, a: 0}
     - _Min: {r: 0.3, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7234290873431208437

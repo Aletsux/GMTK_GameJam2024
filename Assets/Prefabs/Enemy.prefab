@@ -138,3 +138,5 @@ MonoBehaviour:
   interval: 2
   scaleIncrement: {x: 0.5, y: 0.5, z: 0.5}
   drop: {fileID: 5166394141002766152, guid: cbe621078eec1704786ece8fd8f5dae7, type: 3}
+  flashDuration: 0.2
+  objectRenderer: {fileID: 8114972811545369724}
